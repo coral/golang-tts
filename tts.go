@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/bmizerany/aws4"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/coral/aws4"
 )
 
 const api = "https://polly.us-west-2.amazonaws.com"
@@ -82,11 +83,11 @@ type tts struct {
 }
 
 type request struct {
-	OutputFormat	string
-	SampleRate	string
-	Text		string
-	VoiceId		string
-	TextType	string
+	OutputFormat string
+	SampleRate   string
+	Text         string
+	VoiceId      string
+	TextType     string
 }
 
 func New(accessKey string, secretKey string) *tts {
@@ -94,11 +95,11 @@ func New(accessKey string, secretKey string) *tts {
 		accessKey: accessKey,
 		secretKey: secretKey,
 		request: request{
-			OutputFormat:	"mp3",
-			SampleRate:	"22050",
-			Text:		"",
-			TextType:	"text",
-			VoiceId:	"Brian"}}
+			OutputFormat: "mp3",
+			SampleRate:   "22050",
+			Text:         "",
+			TextType:     "text",
+			VoiceId:      "Brian"}}
 }
 
 func (tts *tts) Format(format format) {
